@@ -19,7 +19,10 @@ const config: Config = {
       },
       keyframes: {
         move: {
-          to: {
+          "50%": {
+            strokeDashoffset: "0",
+          },
+          "100%": {
             strokeDashoffset: "0",
           },
         },

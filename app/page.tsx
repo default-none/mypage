@@ -1,10 +1,9 @@
-import Svg from "./components/logo/Svg";
+import { Intro } from "./layout/section/Intro";
+
 export default function Home() {
   return (
-    <>
-      <section className="w-full h-screen bg-black">
-        <Svg></Svg>
-      </section>
-    </>
+    <main className="w-[1440px]">
+      <Intro></Intro>
+    </main>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Header } from "./layout/Header";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "DefaultNone",
@@ -12,7 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header></Header>
+        {children}
+        <footer></footer>
+      </body>
     </html>
   );
 }
