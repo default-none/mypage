@@ -1,20 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useTyping } from "../../hooks/useTyping";
+import { useState, useEffect } from "react";
+
+const Text = ["Hello!", "Who are you?"];
 
 export function Intro() {
-  const [inputName, setInputName] = useState<string>("");
-  const [userName, setUserName] = useState<string | null>();
-  const [handleText, setHandleText] = useState<boolean>(false);
-
-  function saveUserName() {
-    sessionStorage.setItem("Name", inputName);
-    setUserName(sessionStorage.getItem("Name"));
-    setHandleText(true);
+  const [name, setName] = useState<string>("");
+  const [greet, setGreet] = useState(false);
+  const [userName, getUserName] = useState<string[]>(Text);
+  const { typingText, selecedText } = useTyping(userName);
+  function handleClick() {
+    setGreet(true);
+    sessionStorage.setItem("name", name);
+    // getUserName(["Hello!", "Who are you?", "Wellcome!", name, "반가워요!"]);
   }
+
   return (
-    <section className="w-[100%] h-[100vh] flex items-center justify-end">
+    <section className="w-[100%] h-[100vh] flex flex-col items-end justify-center">
       <div className="bannerWrap">
         <div className="bannerImg w-[300px] h-[300px] absolute overflow-hidden top-[50%] left-[30%] translate-x-[-50%] translate-y-[-50%]">
           <Image
@@ -28,35 +32,32 @@ export function Intro() {
           ></Image>
         </div>
         <h2 className=" w-[400px] bannerText text-[#ffffff] text-7xl absolute top-[65%] left-[30%] translate-x-[-50%] translate-y-[-50%]">
-          <span className="block w-[100%] text-left">Jinsu's</span>
+          <span className="block w-[100%] text-left">Jinsu&apos;s</span>
           <span className="block w-[100%] text-right">Portfolio</span>
         </h2>
       </div>
-      <div className="flex flex-col items-center">
-        <h3
-          className={
-            (handleText ? "w-[0%]" : "w-[100%]") +
-            " text-[#ffffff] text-6xl overflow-hidden duration-[3s]"
-          }
-        >
-          Hello!
-        </h3>
-        <h3 className="text-[#ffffff] text-6xl">Who are you?</h3>
-        <h3 className="text-[#ffffff] text-6xl hidden">Wellcome,</h3>
-        <p>{userName}</p>
+      <div>
+        <h2 className="w-[410px] text-[#ffffff] text-6xl blinking-cursor">
+          {typingText}
+        </h2>
         <input
-          className="w-[300px] bg-transparent text-[#ffffff] text-4xl text-center border-[2px] rounded-md outline-none p-[10px] my-[50px]"
-          type="text"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setInputName(e.target.value)
+            setName(e.target.value)
           }
+          className="w-[100%] my-[50px] text-4xl"
+          type="text"
         />
         <button
-          onClick={() => saveUserName()}
-          className="text-[#ffffff] text-2xl"
+          onClick={() => handleClick()}
+          className="w-[100%] text-[#ffffff] block text-2xl text-center border-[1px] border-solid border-[#ffffff]"
         >
-          Enter
+          CLICK
         </button>
+        {greet ? (
+          <h2 className="w-[410px] text-[#ffffff] text-6xl blinking-cursor">
+            {typingText}
+          </h2>
+        ) : null}
       </div>
     </section>
   );
