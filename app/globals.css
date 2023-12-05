@@ -3,15 +3,80 @@
 @tailwind utilities;
 
 @layer components {
+  .flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* BORDER SCREEN */
+  .border-screen {
+    border: 1px solid white;
+  }
+  /* POSITION */
+  .fixed-header {
+    position: fixed;
+    top: 0;
+  }
+  .absoulte-content {
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
   .blinking-cursor:after {
-    content: '_';
+    content: "_";
     @apply text-[#ffffff];
     animation: blink 1s infinite;
   }
-  @keyframes blink{
-    50%{
+  @keyframes blink {
+    50% {
       opacity: 0;
     }
+  }
+  /* TEXT TYPE FOR #FFFFFFF */
+  .text-white-7xl {
+    @apply text-white;
+    @apply text-7xl;
+  }
+  .text-white-6xl {
+    @apply text-white;
+    @apply text-6xl;
+  }
+  .text-white-5xl {
+    @apply text-white;
+    @apply text-5xl;
+  }
+  .text-white-4xl {
+    @apply text-white;
+    @apply text-4xl;
+  }
+  .text-white-3xl {
+    @apply text-white;
+    @apply text-3xl;
+  }
+  .text-white-2xl {
+    @apply text-white;
+    @apply text-2xl;
+  }
+  .text-white-xl {
+    @apply text-white;
+    @apply text-xl;
+  }
+  .text-white-lg {
+    @apply text-white;
+    @apply text-xl;
+  }
+  .text-white-base {
+    @apply text-white;
+    @apply text-xl;
+  }
+  .text-white-sm {
+    @apply text-white;
+    @apply text-xl;
+  }
+  .text-white-xs {
+    @apply text-white;
+    @apply text-xl;
   }
 }
 /* :root {
@@ -29,4 +94,7 @@
 }*/
 body {
   background: linear-gradient(to bottom, #222222, #111111);
+}
+input {
+  outline: none;
 }

@@ -12,10 +12,10 @@ export function Header() {
     <header
       className={
         (handle ? "grayscale" : "grayscale-0") +
-        " w-[100%] flex-col-center py-10 fixed-header z-10 duration-[0.5s] text-center"
+        " w-[100%] flex-col-center py-10 fixed-header z-10 cursor-pointer duration-[0.5s]"
       }
     >
-      <h1 onClick={handleNavigaitor} className="cursor-pointer">
+      <h1 onClick={handleNavigaitor}>
         <Logo />
       </h1>
       <nav

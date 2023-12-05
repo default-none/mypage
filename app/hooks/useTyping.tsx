@@ -20,21 +20,21 @@ export function useTyping(text: string[]): {
   selecedText: string;
   phase: Phase;
 } {
-  const PAUSE_LOGIC = 2; //ANIMATION END
+  //ANIMATION END
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [phase, setPhase] = useState(Phase.Typing);
   const [typingText, setTypingText] = useState<string>("");
   const [OnOff, setOnOff] = useState(true);
+  const PAUSE_LOGIC = text.length - 1;
 
   useEffect(() => {
-    // if (
-    //   selectedIndex === PAUSE_LOGIC &&
-    //   typingText.length === text[PAUSE_LOGIC].length
-    // ) {
-    //   console.log(text);
-    //   setOnOff(false);
-    // }
+    if (
+      selectedIndex === PAUSE_LOGIC &&
+      typingText.length === text[PAUSE_LOGIC].length
+    ) {
+      setOnOff(false);
+    }
     if (OnOff) {
       switch (phase) {
         case Phase.Typing: {
