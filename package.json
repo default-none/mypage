@@ -7,8 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "next build && subtree push --prefix out origin gh-pages"
+    "lint": "next lint"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
