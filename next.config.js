@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const prefix =
-  process.env.NODE_ENV === "production" ? "https://default-none.github.io/mypage/" : "";
+  process.env.NODE_ENV === "production"
+    ? "https://default-none.github.io/mypage/"
+    : "";
 
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   assetPrefix: prefix,
   webpack: (config) => {
