@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { TypingText } from "./intro/TypingText";
 import Info from "@/components/icon/Contect";
 import PageButton from "@/components/button/PageButton";
+import DesertFox from "@/public/asset/image/desertFox.png";
 
 const Text = ["Hello!", "Who are you?"];
 
@@ -38,7 +39,7 @@ export function Intro() {
         <div className="bannerWrap">
           <div className="bannerImg w-[300px] h-[300px] overflow-hidden absoulte-content top-[50%] left-[30%]">
             <Image
-              src="./asset/image/desertFox.png"
+              src={DesertFox}
               alt="desertFpx"
               fill={true}
               sizes="(max-width: 300px)"
@@ -56,8 +57,12 @@ export function Intro() {
               " w-[400px] bannerText text-white-7xl absoulte-content top-[75%] left-[30%] duration-[5s]"
             }
           >
-            <span className="block w-[100%] text-left text-shadow-theme">Jinsu&apos;s</span>
-            <span className="block w-[100%] text-right text-shadow-theme">Portfolio</span>
+            <span className="block w-[100%] text-left text-shadow-theme">
+              Jinsu&apos;s
+            </span>
+            <span className="block w-[100%] text-right text-shadow-theme">
+              Portfolio
+            </span>
           </h2>
         </div>
 
@@ -88,7 +93,8 @@ export function Intro() {
               }
               type="text"
             />
-            <button id="sizeUp"
+            <button
+              id="sizeUp"
               onClick={() => handleClick()}
               className="w-[100px] text-white-2xl block text-center border-[1px] border-solid border-[#ffffff]"
             >
@@ -111,7 +117,12 @@ export function Intro() {
               <PageButton text={scrollList[2]} />
             </li>
           </ul>
-          <i className={(switchLogic ? "h-[50px] opacity-100":"h-[0px] opacity-0")+" absoulte-content top-[80%] left-[50%] overflow-hidden delay-[2s] duration-[1s] cursor-pointer"}>
+          <i
+            className={
+              (switchLogic ? "h-[50px] opacity-100" : "h-[0px] opacity-0") +
+              " absoulte-content top-[80%] left-[50%] overflow-hidden delay-[2s] duration-[1s] cursor-pointer"
+            }
+          >
             <Info />
           </i>
         </div>
