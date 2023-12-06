@@ -38,7 +38,7 @@ export function Intro() {
         <div className="bannerWrap">
           <div className="bannerImg w-[300px] h-[300px] overflow-hidden absoulte-content top-[50%] left-[30%]">
             <Image
-              src="/asset/image/desertFox.png"
+              src="./asset/image/desertFox.png"
               alt="desertFpx"
               fill={true}
               sizes="(max-width: 300px)"
