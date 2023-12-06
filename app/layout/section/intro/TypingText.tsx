@@ -1,4 +1,5 @@
-import { useTyping } from "@/app/hooks/useTyping";
+import { useTyping } from "@/hooks/useTyping";
+
 
 type Props = {
   text: string[];

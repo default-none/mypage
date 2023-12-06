@@ -13,9 +13,25 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        sans: ["var(--font-roboto-flex)", "var(--font-noto-sans-kr)"],
+      },
       colors: {
+        "bg-color1": "#121212",
+        "bg-color2": "#1a1a1a",
+
         "theme-color1": "#ffe998",
         "theme-color2": "#57370d",
+
+        "sub-color1": "#391a41",
+        "sub-color2": "#f5536b",
+        "sub-color3": "#aba5c9",
+      },
+      dropShadow: {
+        "theme": "5px 5px 4px 4px rgba(0,0,0,1)",
+      },
+      textShadow: {
+        "theme": "5px 5px 4px 4px rgba(0,0,0,1)",
       },
       keyframes: {
         move: {

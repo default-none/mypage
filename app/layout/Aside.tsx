@@ -1,7 +1,7 @@
 "use client";
 
+import Logo from "@/components/logo/Logo";
 import { useState } from "react";
-import Logo from "../components/logo/Logo";
 
 export function Header() {
   const [handle, setHandle] = useState<boolean>(false);

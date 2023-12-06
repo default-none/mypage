@@ -1,7 +1,7 @@
 "use client";
 
+import Logo from "@/components/logo/Logo";
 import { useState } from "react";
-import Logo from "../components/logo/Logo";
 
 export function Header() {
   const [handle, setHandle] = useState<boolean>(false);
@@ -24,11 +24,15 @@ export function Header() {
         }
       >
         <ul className="flex justify-around">
-          <li className="w-[100px] mx-[50px] my-[10px] text-white-xl">About</li>
-          <li className="w-[100px] mx-[50px] my-[10px] text-white-xl">
-            Project
+          <li id="wUp" className="w-[100px] mx-[50px] my-[10px] text-white-xl">
+            Portfolio
           </li>
-          <li className="w-[100px] mx-[50px] my-[10px] text-white-xl">Plan</li>
+          <li id="wUp" className="w-[100px] mx-[50px] my-[10px] text-white-xl">
+            Program
+          </li>
+          <li id="wUp" className="w-[100px] mx-[50px] my-[10px] text-white-xl">
+            Plan
+          </li>
         </ul>
       </nav>
     </header>

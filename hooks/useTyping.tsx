@@ -10,9 +10,9 @@ enum Phase {
 }
 
 // TIME SETTING
-const TYPING_INTERVAL = 150;
-const PAUSE_TIME = 1000;
-const DELETE_INTERVAL = 50;
+const TYPING_INTERVAL = 100;
+const PAUSE_TIME = 500;
+const DELETE_INTERVAL = 25;
 
 // HOOKS
 export function useTyping(text: string[]): {
