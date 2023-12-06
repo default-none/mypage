@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import { prefix } from './prefix.config';
+const { prefix } = require('./prefix.config');
 
 const nextConfig = {
   reactStrictMode: true,
@@ -15,4 +15,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
