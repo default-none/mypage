@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const { prefix } = require('./prefix.config');
+const prefix =
+  process.env.NODE_ENV === "production" ? "https://default-none.github.io/mypage/" : "";
 
 const nextConfig = {
   reactStrictMode: true,
