@@ -7,21 +7,21 @@ type CURSOR_TYPE = {
 };
 
 const CURSOR_POINT: CURSOR_TYPE = {
-  sizeup: "w-[50px] h-[50px] rounded-[50%]",
-  wup: "w-[50px] h-[25px] rounded-[0%]",
-  input: "w-[25px] h-[50px] rounded-[0%]",
-  default: "w-[25px] h-[25px] rounded-[50%]",
+  sizeup: "w-[40px] h-[40px] rounded-[50%]",
+  wup: "w-[40px] h-[20px] rounded-[0%]",
+  input: "w-[20px] h-[40px] rounded-[0%]",
+  default: "w-[20px] h-[20px] rounded-[50%]",
 };
 
 export function CustomCursor() {
   const cursorRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [cursorState, setCursorState] = useState(
-    "w-[25px] h-[25px] rounded-[50%]"
+    "w-[20px] h-[20px] rounded-[50%]"
   );
 
   useEffect(() => {
-    const handleMouseMove = (e: { clientX: any; clientY: any }) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setPosition({
         x: e.clientX,
         y: e.clientY,
@@ -29,6 +29,8 @@ export function CustomCursor() {
     };
 
     const handleMouseOver = (e: any) => {
+      if (e.target === null) return;
+      //e.target.id말고 다른 방법을 유추할 필요가 있음
       const name = e.target.id.toLocaleLowerCase();
       setCursorState(CURSOR_POINT[name] || CURSOR_POINT["default"]);
       console.log(name);

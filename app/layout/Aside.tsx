@@ -1,36 +1,30 @@
 "use client";
 
-import Logo from "@/components/logo/Logo";
-import { useState } from "react";
-
-export function Header() {
-  const [handle, setHandle] = useState<boolean>(false);
-  function handleNavigaitor() {
-    setHandle(!handle);
-  }
+export function Aside() {
   return (
-    <header
-      className={
-        (handle ? "grayscale" : "grayscale-0") +
-        " w-[100%] flex-col-center py-10 fixed-header z-10 cursor-pointer duration-[0.5s]"
-      }
-    >
-      <h1 onClick={handleNavigaitor}>
-        <Logo />
-      </h1>
-      <nav
-        className={
-          (handle ? "h-[50px]" : "h-[0px]") + " overflow-hidden duration-[0.5s]"
-        }
-      >
-        <ul className="flex justify-around">
-          <li className="w-[100px] mx-[50px] my-[10px] text-white-xl">About</li>
-          <li className="w-[100px] mx-[50px] my-[10px] text-white-xl">
+    <aside className="fixed-content left-[100%] top-[15%] translate-x-[-25%] tracking-[0.25rem]">
+      <nav>
+        <ul className="w-[max-content]">
+          <li
+            id="wUp"
+            className="text-white-xl translate-x-[0%] hover:translate-x-[-70%] duration-[0.5s] p-[15px]"
+          >
+            About
+          </li>
+          <li
+            id="wUp"
+            className="text-white-xl hover:translate-x-[-70%] duration-[0.5s]  p-[15px]"
+          >
             Project
           </li>
-          <li className="w-[100px] mx-[50px] my-[10px] text-white-xl">Plan</li>
+          <li
+            id="wUp"
+            className="text-white-xl hover:translate-x-[-70%] duration-[0.5s]  p-[15px]"
+          >
+            Contect
+          </li>
         </ul>
       </nav>
-    </header>
+    </aside>
   );
 }

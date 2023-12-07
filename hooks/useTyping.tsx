@@ -20,8 +20,7 @@ export function useTyping(text: string[]): {
   selecedText: string;
   phase: Phase;
 } {
-  //ANIMATION END
-
+  // ANIMATION END
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [phase, setPhase] = useState(Phase.Typing);
   const [typingText, setTypingText] = useState<string>("");

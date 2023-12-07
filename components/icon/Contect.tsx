@@ -1,6 +1,7 @@
 export default function Info() {
   return (
-    <svg className="group"
+    <svg
+      className="group"
       width="50"
       height="50"
       viewBox="0 0 100 100"
@@ -29,8 +30,8 @@ export default function Info() {
           height="95"
           rx="2.5"
           stroke="#FFE998"
-          stroke-width="5"
-          stroke-linejoin="round"
+          strokeWidth="5"
+          strokeLinejoin="round"
         />
         <path
           className=" fill-theme-color1 translate-x-[25%] group-hover:translate-x-0 duration-[1s]"

@@ -1,19 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, SetStateAction, Dispatch } from "react";
 import { TypingText } from "./intro/TypingText";
 import Info from "@/components/icon/Contect";
 import PageButton from "@/components/button/PageButton";
 import DesertFox from "@/public/asset/image/desertFox.png";
 
-const Text = ["Hello!", "Who are you?"];
+type Props = {
+  switchLogic: boolean;
+  setSwitchLogic: Dispatch<SetStateAction<boolean>>;
+};
+const TYPING_TEXT: string[] = ["Hello!", "Who are you?"];
+const SCROLL_LIST: string[] = ["About", "Project", "Contect"];
+const SCROLL_SIZE: number = 30;
 
-const scrollList = ["About", "Project", "Contect"];
-
-export function Intro() {
+export function Intro({ switchLogic, setSwitchLogic }: Props) {
   const [name, setName] = useState<string>("");
-  const [switchLogic, setSwitchLogic] = useState(false);
+  // const [switchLogic] = useState(false);
   const [errorLogic, setErrorLogic] = useState(false);
   const [userName, getUserName] = useState<string[]>([""]);
   function handleClick() {
@@ -66,13 +70,13 @@ export function Intro() {
           </h2>
         </div>
 
-        <div className="absoulte-content top-[50%] left-[70%] flex-col-center w-[50%] h-[50%]">
+        <div className="absoulte-content top-[50%] left-[70%] flex-col-center w-[50%] h-[70%]">
           {switchLogic ? (
             <>
               <TypingText text={userName} size={48} />
             </>
           ) : null}
-          {switchLogic ? null : <TypingText text={Text} size={60} />}
+          {switchLogic ? null : <TypingText text={TYPING_TEXT} size={60} />}
           {switchLogic ? null : errorLogic ? (
             <TypingText text={userName} size={20} />
           ) : null}
@@ -107,15 +111,13 @@ export function Intro() {
               " absoulte-content top-[50%] left-[50%] overflow-hidden flex delay-[2s] duration-[1s]"
             }
           >
-            <li className="mx-[20px]">
-              <PageButton text={scrollList[0]} />
-            </li>
-            <li className="mx-[20px]">
-              <PageButton text={scrollList[1]} />
-            </li>
-            <li className="mx-[20px]">
-              <PageButton text={scrollList[2]} />
-            </li>
+            {SCROLL_LIST.map<JSX.Element>((list, i) => {
+              return (
+                <li key={i}>
+                  <PageButton text={list} size={SCROLL_SIZE} />
+                </li>
+              );
+            })}
           </ul>
           <i
             className={

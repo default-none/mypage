@@ -18,6 +18,10 @@
     position: fixed;
     top: 0;
   }
+  .fixed-content {
+    position: fixed;
+    transform: translate(-50%, -50%);
+  }
   .absoulte-content {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -110,7 +114,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 }*/
-*{
+* {
   cursor: none !important;
 }
 body {
@@ -120,4 +124,20 @@ body {
 }
 input {
   outline: none;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.scroll {
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: red;
+  transform-origin: 0%;
 }

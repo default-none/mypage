@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Roboto, Roboto_Flex } from "next/font/google";
-import { Header } from "./layout/Header";
+import { Noto_Sans_KR, Roboto_Flex } from "next/font/google";
 import "./globals.css";
+import { Header, Footer } from "./layout/index";
 import { CustomCursor } from "@/components/CustomCursor";
 const kr = Noto_Sans_KR({
   preload: false,
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${kr.variable} ${en.variable}`}>
+    <html lang="en" className={`${kr.variable} ${en.variable} scroll`}>
       <body>
         <Header></Header>
         {children}
