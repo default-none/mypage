@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Roboto_Flex } from "next/font/google";
 import "./globals.css";
-import { Header, Footer } from "./layout/index";
+import { Header } from "./layout/index";
 import { CustomCursor } from "@/components/CustomCursor";
 const kr = Noto_Sans_KR({
   preload: false,
