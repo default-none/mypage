@@ -13,6 +13,7 @@ export default function Home() {
 
   function Test() {
     if (AboutRef.current === null) return;
+
     console.log(AboutRef.current.offsetTop);
   }
   useEffect(() => {

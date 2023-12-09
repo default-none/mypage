@@ -12,13 +12,13 @@ export function TypingText({ text, size }: Props) {
     <h2
       className={
         (size === 60
-          ? "text-6xl"
+          ? "text-white-6xl"
           : size === 48
-          ? "text-5xl"
+          ? "text-white-5xl"
           : size === 20
-          ? "text-xl"
+          ? "text-white-xl"
           : null) +
-        " text-[#ffffff] text-center blinking-cursor whitespace-nowrap my-5"
+        " text-center blinking-cursor whitespace-nowrap my-5"
       }
     >
       {typingText}

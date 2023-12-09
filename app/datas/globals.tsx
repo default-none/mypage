@@ -1,0 +1,1 @@
+export const MAIN_LIST : string[] =["About", "Project", "Contect"];
