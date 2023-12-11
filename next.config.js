@@ -6,9 +6,9 @@ const prefix =
     : "";
 
 const nextConfig = {
-  // output: "export",
-  // reactStrictMode: true,
-  // assetPrefix: prefix,
+  output: "export",
+  reactStrictMode: true,
+  assetPrefix: prefix,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
