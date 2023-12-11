@@ -16,7 +16,7 @@ export function Header() {
       }
     >
       <h1 onClick={handleNavigaitor} className="cursor-pointer">
-        <Logo />
+        <Logo size={60}/>
       </h1>
       <nav
         className={

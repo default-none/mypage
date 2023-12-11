@@ -1,11 +1,15 @@
-export default function Logo() {
+type Props = {
+  size: number;
+};
+
+export default function Logo({size}:Props) {
   return (
     <svg
       id="sizeUp"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={60}
-      height={60}
+      width={size}
+      height={size}
       viewBox="0 0 75 72.06"
     >
       <defs>

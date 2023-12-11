@@ -93,9 +93,9 @@
     @apply text-xl;
     @apply max-lg:text-lg;
   }
-  .text-white-max-lg {
+  .text-white-lg {
     @apply text-white;
-    @apply text-max-lg;
+    @apply text-lg;
     @apply max-lg:text-base;
   }
   .text-white-base {
@@ -137,13 +137,13 @@ body {
 input {
   outline: none;
 }
-.scroll::-webkit-scrollbar {
+/* .scroll::-webkit-scrollbar {
   display: none;
-}
-.scroll {
-  -ms-overflow-style: none; /* 인터넷 익스플로러 */
-  scrollbar-width: none; /* 파이어폭스 */
-}
+} */
+/* .scroll {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+} */ 
 .progress-bar {
   position: fixed;
   top: 0;

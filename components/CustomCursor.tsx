@@ -33,7 +33,6 @@ export function CustomCursor() {
       //e.target.id말고 다른 방법을 유추할 필요가 있음
       const name = e.target.id.toLocaleLowerCase();
       setCursorState(CURSOR_POINT[name] || CURSOR_POINT["default"]);
-      console.log(name);
     };
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseover", handleMouseOver);

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-function useThrottle<T extends []>(callback: (...params: T) => void, time: number) {
+export function useThrottle<T extends any[]>(callback:Function, time: number) {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   return (...params: T) => {

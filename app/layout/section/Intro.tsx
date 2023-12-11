@@ -1,29 +1,31 @@
 "use client";
 
-type Props = {
-  switchLogic: boolean;
-  setSwitchLogic: Dispatch<SetStateAction<boolean>>;
-};
-
 import Image from "next/image";
-import { useState, SetStateAction, Dispatch } from "react";
+import { useState, useRef } from "react";
 import { TypingText } from "./intro/TypingText";
 import Info from "@/components/icon/Contect";
 import PageButton from "@/components/button/PageButton";
 import DesertFox from "@/public/asset/image/desertFox.png";
 import { MAIN_LIST } from "@/app/datas/globals";
+import { useScroller } from "@/hooks/useScroller";
+import { hookLogic } from "portfolio";
 
 const TYPING_TEXT: string[] = ["Hello!", "Who are you?"];
 const LIST_SIZE: number = 30;
 
-export function Intro({ switchLogic, setSwitchLogic }: Props) {
+export function Intro({
+  switchLogic,
+  setSwitchLogic,
+  introView,
+  setIntroView,
+}: hookLogic) {
   const [name, setName] = useState<string>("");
   const [errorLogic, setErrorLogic] = useState(false);
   const [userName, getUserName] = useState<string[]>([""]);
+  const introRef = useRef<HTMLDivElement>(null);
 
-  function handleClick() {
+  function callText() {
     if (name.length >= 1 && name.length <= 20) {
-      setSwitchLogic(true);
       sessionStorage.setItem("name", name);
       getUserName(["Wellcome!", name + "님 환영합니다!"]);
     }
@@ -32,17 +34,40 @@ export function Intro({ switchLogic, setSwitchLogic }: Props) {
       getUserName(["1자 이상 혹은 20자 이하로 작성해주세요!"]);
     }
   }
+  function handleClick() {
+    setSwitchLogic(true);
+    callText();
+  }
   function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       handleClick();
     }
   }
 
+  useScroller(() => {
+    if (introRef === null) return;
+    if (introRef.current === null) return;
+    const introTop = introRef.current.offsetTop;
+    const introHeight = introRef.current.offsetHeight;
+
+    if (window.scrollY >= introTop + introHeight / 2) {
+      setIntroView(false);
+    }
+    if (window.scrollY <= introTop + introHeight / 2) {
+      setIntroView(true);
+    }
+  },500);
+
   return (
-    <section className="w-[100%] h-[100vh] flex-col-center">
-      <div className="IntroScreen border-screen w-[100%] h-[60%] max-md:h-[80%] relative overflow-hidden">
+    <section ref={introRef} className="w-[100%] h-[100vh] flex-col-center">
+      <div
+        className={
+          (introView ? "opacity-100" : "opacity-0") +
+          " IntroScreen border-screen w-[100%] h-[70%] relative overflow-hidden duration-[.5s]"
+        }
+      >
         <div className="bannerWrap">
-          <div className="bannerImg w-[300px] h-[300px] overflow-hidden absoulte-content top-[50%] max-md:top-[80%] left-[30%] max-md:left-[50%]">
+          <div className="bannerImg w-[300px] max-md:w-[200px] h-[300px] max-md:h-[200px] overflow-hidden absoulte-content top-[50%] max-md:top-[80%] left-[30%] max-md:left-[50%]">
             <Image
               src={DesertFox}
               alt="desertFpx"
@@ -54,12 +79,12 @@ export function Intro({ switchLogic, setSwitchLogic }: Props) {
                 (switchLogic ? "grayscale-0" : "grayscale") +
                 " duration-[10s] object-cover"
               }
-            ></Image>
+            />
           </div>
           <h2
             className={
               (switchLogic ? "opacity-100" : "opacity-0") +
-              " w-[400px] bannerText text-white-7xl absoulte-content top-[75%] max-md:top-[60%]  left-[30%] max-md:left-[50%] duration-[5s]"
+              " w-[400px] bannerText text-white-7xl absoulte-content top-[75%] max-md:top-[70%]  left-[30%] max-md:left-[50%] duration-[5s]"
             }
           >
             <span className="block w-[100%] text-left text-shadow-theme">
@@ -71,7 +96,7 @@ export function Intro({ switchLogic, setSwitchLogic }: Props) {
           </h2>
         </div>
 
-        <div className="absoulte-content top-[50%] max-md:top-[20%] left-[70%] max-md:left-[50%] flex-col-center w-[50%] h-[70%]">
+        <div className="absoulte-content top-[50%] max-md:top-[20%] left-[70%] max-md:left-[50%] flex-col-center ">
           {switchLogic ? (
             <>
               <TypingText text={userName} size={48} />
@@ -89,7 +114,7 @@ export function Intro({ switchLogic, setSwitchLogic }: Props) {
           >
             <input
               id="input"
-              className=" w-[200px] bg-[#444444] my-[50px] py-[10px] text-white-2xl text-center"
+              className=" w-[200px] bg-[#444444] my-[50px] max-md:my-[20px] py-[10px] text-white-2xl text-center"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setName(e.target.value)
               }
