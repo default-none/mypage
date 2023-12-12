@@ -22,11 +22,13 @@
   }
   .fixed-content {
     position: fixed;
-    transform: translate(-50%, -50%);
+    @apply translate-x-[-50%];
+    @apply translate-y-[-50%];
   }
   .absoulte-content {
     position: absolute;
-    transform: translate(-50%, -50%);
+    @apply translate-x-[-50%];
+    @apply translate-y-[-50%];
   }
   .cursor-style {
     mix-blend-mode: difference;
@@ -52,6 +54,21 @@
   @keyframes blink {
     50% {
       opacity: 0;
+    }
+  }
+  .slide {
+    animation: slide 30s linear infinite;
+  }
+  .slide:hover {
+    animation-play-state: paused;
+    z-index: 10;
+  }
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 10));
     }
   }
   /* TEXT TYPE FOR #FFFFFFF */
@@ -143,7 +160,7 @@ input {
 /* .scroll {
   -ms-overflow-style: none; 
   scrollbar-width: none; 
-} */ 
+} */
 .progress-bar {
   position: fixed;
   top: 0;

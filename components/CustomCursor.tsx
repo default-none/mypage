@@ -10,6 +10,7 @@ const CURSOR_POINT: CURSOR_TYPE = {
   sizeup: "w-[40px] h-[40px] rounded-[50%]",
   wup: "w-[40px] h-[20px] rounded-[0%]",
   input: "w-[20px] h-[40px] rounded-[0%]",
+  skill: "w-[10px] h-[80px] rounded-[0%]",
   default: "w-[20px] h-[20px] rounded-[50%]",
 };
 

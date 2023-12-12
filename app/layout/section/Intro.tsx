@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { TypingText } from "./intro/TypingText";
 import Info from "@/components/icon/Contect";
-import PageButton from "@/components/button/PageButton";
+import { PageButton } from "@/components/button";
 import DesertFox from "@/public/asset/image/desertFox.png";
 import { MAIN_LIST } from "@/app/datas/globals";
 import { useScroller } from "@/hooks/useScroller";
@@ -16,13 +16,13 @@ const LIST_SIZE: number = 30;
 export function Intro({
   switchLogic,
   setSwitchLogic,
-  introView,
-  setIntroView,
+  view,
+  setView,
 }: hookLogic) {
   const [name, setName] = useState<string>("");
   const [errorLogic, setErrorLogic] = useState(false);
   const [userName, getUserName] = useState<string[]>([""]);
-  const introRef = useRef<HTMLDivElement>(null);
+  const introRef = useRef<HTMLElement>(null);
 
   function callText() {
     if (name.length >= 1 && name.length <= 20) {
@@ -51,18 +51,18 @@ export function Intro({
     const introHeight = introRef.current.offsetHeight;
 
     if (window.scrollY >= introTop + introHeight / 2) {
-      setIntroView(false);
+      setView(false);
     }
-    if (window.scrollY <= introTop + introHeight / 2) {
-      setIntroView(true);
+    if (window.scrollY < introTop + introHeight / 2) {
+      setView(true);
     }
-  },500);
+  }, 500);
 
   return (
     <section ref={introRef} className="w-[100%] h-[100vh] flex-col-center">
       <div
         className={
-          (introView ? "opacity-100" : "opacity-0") +
+          (view ? "opacity-100" : "opacity-0") +
           " IntroScreen border-screen w-[100%] h-[70%] relative overflow-hidden duration-[.5s]"
         }
       >

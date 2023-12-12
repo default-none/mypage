@@ -3,7 +3,7 @@ type Props = {
   size: number;
 };
 
-export default function PageButton({ text, size }: Props) {
+export function PageButton({ text, size }: Props) {
   return (
     <span
       id="wUp"

@@ -3,11 +3,11 @@
 import { MAIN_LIST } from "../datas/globals";
 import { hookLogic } from "portfolio";
 
-export function Aside({ introView }: hookLogic) {
+export function Aside({ view }: hookLogic) {
   return (
     <aside
       className={
-        (introView ? "opacity-0" : "opacity-100") +
+        (view ? "opacity-0" : "opacity-100") +
         " fixed-content left-[100%] top-[40%] translate-x-[-25%] tracking-[0.25rem] duration-[.5s]"
       }
     >

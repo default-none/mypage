@@ -4,21 +4,44 @@ import Image from "next/image";
 import { SectionTitle } from "@/components/text/SectionTitle";
 import Profile from "@/public/asset/image/profile.jpg";
 import { Profiles, history } from "@/app/datas/globals";
-import { ProfileText } from "./About/ProfileText";
+import { ProfileText } from "./about/ProfileText";
 import Logo from "@/components/logo/Logo";
-
-type Props = {
-  AboutRef: React.ForwardedRef<HTMLElement>;
-};
+import { useScroller } from "@/hooks";
+import { useRef } from "react";
+import { hookLogic } from "portfolio";
 
 const TITLE = "About Me";
 
-export function About({ AboutRef }: Props) {
+export function About({ view, setView }: hookLogic) {
+  const aboutRef = useRef<HTMLElement>(null);
+  useScroller(() => {
+    if (aboutRef === null) return;
+    if (aboutRef.current === null) return;
+    const aboutTop = aboutRef.current.offsetTop;
+    const aboutHeight = aboutRef.current.offsetHeight;
+    if (
+      window.scrollY < aboutTop / 2 ||
+      window.scrollY >= aboutTop + aboutHeight / 2
+    ) {
+      setView(false);
+    }
+    if (
+      window.scrollY < aboutTop + aboutHeight / 2 &&
+      window.scrollY > aboutTop / 2
+    ) {
+      setView(true);
+    }
+  }, 500);
   return (
     <>
-      <section ref={AboutRef} className="w-[100%] h-[100dvh] flex-col-center">
-        <div className="AboutScreen w-[100%] h-[70%]">
-          <SectionTitle text={TITLE} />
+      <section ref={aboutRef} className="w-[100%] h-[100dvh] flex-col-center">
+        <div
+          className={
+            (view ? "opacity-100" : "opacity-0 ") +
+            " AboutScreen w-[100%] h-[70%] duration-[.5s]"
+          }
+        >
+          <SectionTitle text={TITLE} view={view} />
           <div className="w-[100%] h-[100%] flex justify-center items-center relative">
             <div className="absoulte-content top-[50%] left-[50%] z-[-1] grayscale opacity-20">
               <Logo size={200} />
@@ -40,23 +63,6 @@ export function About({ AboutRef }: Props) {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-      <section className="skill w-[100%] h-[100dvh] flex-col-center">
-        <div className="history w-[100%] h-[50%]">
-          <ul className="h-[100%] flex flex-col flex-wrap">
-            {history.map((career, id) => {
-              return (
-                <li key={id} className="text-white-lg flex justify-between items-center w-[calc(50%-40px)] h-[20%] mr-[20px] my-[5px] ">
-                  <span>- {career.content}</span>
-                  <span>{career.day}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="skill">
-          <h3>skill</h3>
         </div>
       </section>
     </>

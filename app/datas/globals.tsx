@@ -35,3 +35,15 @@ export const history = [
     day: "[2023.05.31 ~ 2023-12-18]",
   },
 ];
+export const skillSvg = [
+  { id: "html", name: "/asset/image/HTML.svg" },
+  { id: "css", name: "/asset/image/CSS.svg" },
+  { id: "sass", name: "/asset/image/Sass.svg" },
+  { id: "javascript", name: "/asset/image/JavaScript.svg" },
+  { id: "nodejs", name: "/asset/image/NodeJs.svg" },
+  { id: "reactjs", name: "/asset/image/ReactJs.svg" },
+  { id: "typescript", name: "/asset/image/TypeScript.svg" },
+  { id: "nextjs", name: "/asset/image/NextJs.svg" },
+  { id: "tailwind", name: "/asset/image/TailWind.svg" },
+  { id: "figma", name: "/asset/image/Figma.svg" },
+];

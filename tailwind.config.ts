@@ -28,10 +28,10 @@ const config: Config = {
         "sub-color3": "#aba5c9",
       },
       dropShadow: {
-        "theme": "5px 5px 4px 4px rgba(0,0,0,1)",
+        theme: "5px 5px 4px 4px rgba(0,0,0,1)",
       },
       textShadow: {
-        "theme": "5px 5px 4px 4px rgba(0,0,0,1)",
+        theme: "5px 5px 4px 4px rgba(0,0,0,1)",
       },
       keyframes: {
         move: {
