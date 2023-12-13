@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { SectionTitle } from "@/components/text/SectionTitle";
 import Profile from "@/public/asset/image/profile.jpg";
-import { Profiles, history } from "@/app/datas/globals";
+import { Profiles } from "@/app/datas/globals";
 import { ProfileText } from "./about/ProfileText";
 import Logo from "@/components/logo/Logo";
 import { useScroller } from "@/hooks";
@@ -27,11 +27,11 @@ export function About({ view, setView }: hookLogic) {
     }
     if (
       window.scrollY < aboutTop + aboutHeight / 2 &&
-      window.scrollY > aboutTop / 2
+      window.scrollY > aboutTop - aboutHeight / 2
     ) {
       setView(true);
     }
-  }, 500);
+  }, 300);
   return (
     <>
       <section ref={aboutRef} className="w-[100%] h-[100dvh] flex-col-center">

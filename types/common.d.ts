@@ -9,5 +9,7 @@ declare module "portfolio" {
     setFirstView?: Dispatch<SetStateAction<boolean>>;
     setSecondView?: Dispatch<SetStateAction<boolean>>;
     setCallLogic?: Dispatch<SetStateAction<boolean>>;
+    setGlobalLogic?: Dispatch<SetStateAction<boolean>>;
+    globalLogic?: boolean;
   }
 }

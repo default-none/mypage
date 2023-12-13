@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import useThrottle from "./useThrottle";
 
 export function useScroller(action: Function, time: number) {

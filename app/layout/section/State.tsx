@@ -12,51 +12,36 @@ export function State({
   secondView,
   setSecondView,
 }: hookLogic) {
-  const stateHistoryRef = useRef<HTMLDivElement>(null);
-  const stateSkillRef = useRef<HTMLDivElement>(null);
+  const stateRef = useRef<HTMLElement>(null);
   const [moreLogic, setMoreLogic] = useState(false);
 
   //공통되는 useScroller의 형식을 component화 하려 했으나 HTMLElment or HTMLDivElemnt type쪽에서 current속성이 존재하지 않는다고 함.
   useScroller(() => {
-    if (stateHistoryRef === null) return;
-    if (stateHistoryRef.current === null) return;
-    const historyTop = stateHistoryRef.current.offsetTop;
-    const historyHeight = stateHistoryRef.current.offsetHeight;
+    if (stateRef === null) return;
+    if (stateRef.current === null) return;
+    const stateTop = stateRef.current.offsetTop;
+    const stateHeight = stateRef.current.offsetHeight;
     if (
-      window.scrollY < historyTop + historyHeight / 2 ||
-      window.scrollY >= historyTop + historyHeight / 2
+      window.scrollY < stateTop / 2 ||
+      window.scrollY >= stateTop + stateHeight / 2
     ) {
       setFirstView(false);
-    }
-    if (
-      window.scrollY < historyTop + historyHeight / 2 &&
-      window.scrollY > historyTop / 2
-    ) {
-      setFirstView(true);
-    }
-  }, 500);
-
-  useScroller(() => {
-    if (stateSkillRef === null) return;
-    if (stateSkillRef.current === null) return;
-    const skillTop = stateSkillRef.current.offsetTop;
-    const skillHeight = stateSkillRef.current.offsetHeight;
-    if (
-      window.scrollY < skillTop + skillHeight / 2 ||
-      window.scrollY >= skillTop + skillHeight / 2
-    ) {
       setSecondView(false);
     }
     if (
-      window.scrollY < skillTop + skillHeight / 2 &&
-      window.scrollY > skillTop / 2
+      window.scrollY < stateTop + stateHeight / 2 &&
+      window.scrollY > stateTop - stateHeight / 2
     ) {
+      setFirstView(true);
       setSecondView(true);
     }
-  }, 500);
+  }, 300);
   return (
-    <section className="life w-[100%] h-[100dvh] flex-col-center">
-      <div ref={stateHistoryRef} className="history w-[100%]">
+    <section
+      ref={stateRef}
+      className="life w-[100%] h-[100dvh] flex-col-center"
+    >
+      <div className="history w-[100%]">
         <SubTitle text={"History"} view={firstView} />
         <ul className="h-[100%] flex flex-col flex-wrap gap-x-[80px] gap-y-[20px] overflow-hidden mt-[50px]">
           {history.map((career, id) => {
@@ -77,10 +62,7 @@ export function State({
           })}
         </ul>
       </div>
-      <div
-        ref={stateSkillRef}
-        className="skill w-[100%] mt-[50px] overflow-hidden"
-      >
+      <div className="skill w-[100%] mt-[50px] overflow-hidden">
         <div className="flex items-center mb-[50px]">
           <SubTitle text={"Skill"} view={secondView} />
           <MoreButton

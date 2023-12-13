@@ -59,7 +59,7 @@ export function Intro({
   }, 500);
 
   return (
-    <section ref={introRef} className="w-[100%] h-[100vh] flex-col-center">
+    <section ref={introRef} className="w-[100%] h-[100dvh] flex-col-center">
       <div
         className={
           (view ? "opacity-100" : "opacity-0") +

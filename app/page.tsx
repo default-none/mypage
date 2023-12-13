@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { Intro, About, State, Address } from "./layout/section/index";
+import { Intro, About, State, Address, Project } from "./layout/section/index";
 import { Aside } from "./layout/index";
 import { useScroller } from "@/hooks";
 
@@ -14,6 +14,9 @@ export default function Home() {
   const [aboutView, setAboutView] = useState(false);
   const [stateHistoryView, setStateHistoryView] = useState(false);
   const [stateSkillView, setStateSkillView] = useState(false);
+  const [addressView, setAddressView] = useState(false);
+
+  const [globalLogic, setGlobalLogic] = useState(false);
   useScroller(() => {
     if (progressBar) return;
     if (switchLogic) setProgressBar(true);
@@ -32,7 +35,7 @@ export default function Home() {
             id="pageWrap"
             className="w-[1440px] max-[1440px]:w-[100%] m-auto"
           >
-            <Aside view={introView} />
+            <Aside view={introView} globalLogic={globalLogic} />
             <About view={aboutView} setView={setAboutView} />
             <State
               firstView={stateHistoryView}
@@ -41,7 +44,14 @@ export default function Home() {
               setSecondView={setStateSkillView}
             />
           </div>
-          <Address />
+          <Address
+            view={addressView}
+            setView={setAddressView}
+            setGlobalLogic={setGlobalLogic}
+          />
+          <div className="w-[1440px] max-[1440px]:w-[100%] m-auto">
+            <Project />
+          </div>
         </>
       ) : null}
       <motion.div
