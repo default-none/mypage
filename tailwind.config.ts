@@ -19,6 +19,7 @@ const config: Config = {
       colors: {
         "bg-color1": "#121212",
         "bg-color2": "#1a1a1a",
+        "bg-color3": "#f5f0e0",
 
         "theme-color1": "#ffe998",
         "theme-color2": "#57370d",

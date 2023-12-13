@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { Intro, About, State } from "./layout/section/index";
+import { Intro, About, State, Address } from "./layout/section/index";
 import { Aside } from "./layout/index";
 import { useScroller } from "@/hooks";
 
@@ -19,16 +19,19 @@ export default function Home() {
     if (switchLogic) setProgressBar(true);
   }, 10);
   return (
-    <div id="pageWrap">
-      <main className="w-[1440px] max-[1440px]:w-[100%] m-auto h-[300%]">
-        <Intro
-          switchLogic={switchLogic}
-          setSwitchLogic={setSwitchLogic}
-          view={introView}
-          setView={setIntroView}
-        />
-        {switchLogic ? (
-          <>
+    <main className=" overflow-hidden">
+      <Intro
+        switchLogic={switchLogic}
+        setSwitchLogic={setSwitchLogic}
+        view={introView}
+        setView={setIntroView}
+      />
+      {switchLogic ? (
+        <>
+          <div
+            id="pageWrap"
+            className="w-[1440px] max-[1440px]:w-[100%] m-auto"
+          >
             <Aside view={introView} />
             <About view={aboutView} setView={setAboutView} />
             <State
@@ -37,13 +40,14 @@ export default function Home() {
               setFirstView={setStateHistoryView}
               setSecondView={setStateSkillView}
             />
-          </>
-        ) : null}
-        <motion.div
-          className="progress-bar"
-          style={progressBar ? { scaleX: scrollYProgress } : { scaleX: 0 }}
-        />
-      </main>
-    </div>
+          </div>
+          <Address />
+        </>
+      ) : null}
+      <motion.div
+        className="progress-bar"
+        style={progressBar ? { scaleX: scrollYProgress } : { scaleX: 0 }}
+      />
+    </main>
   );
 }

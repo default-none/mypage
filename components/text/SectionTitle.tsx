@@ -8,7 +8,7 @@ export function SectionTitle({ text, view }: Props) {
       <h2
         className={
           (view ? "opacity-100" : "opacity-0") +
-          " text-white-3xl w-[max-content] duration-[1s]"
+          " text-white-3xl w-[max-content] duration-[.5s]"
         }
       >
         {text}
@@ -16,7 +16,7 @@ export function SectionTitle({ text, view }: Props) {
       <div
         className={
           (view ? "translate-x-[-90%]" : "translate-x-[-120%]") +
-          " bg-white w-[100%] h-[1px] duration-[1s]"
+          " bg-white w-[100%] h-[1px] duration-[.5s]"
         }
       ></div>
     </>

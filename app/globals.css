@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-  .flex-col-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  /* BACK GROUND */
+  .bg-img {
+    background: url(../public/asset/image/background2.jpg) center repeat;
+    background-size: contain;
   }
   /* BORDER SCREEN */
   .border-screen {
@@ -16,6 +15,12 @@
     @apply max-md:border-none;
   }
   /* POSITION */
+  .flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .fixed-header {
     position: fixed;
     top: 0;
@@ -61,14 +66,13 @@
   }
   .slide:hover {
     animation-play-state: paused;
-    z-index: 10;
   }
   @keyframes slide {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-300px * 10));
+      transform: translateX(calc(-200px * 10));
     }
   }
   /* TEXT TYPE FOR #FFFFFFF */
@@ -154,13 +158,13 @@ body {
 input {
   outline: none;
 }
-/* .scroll::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
   display: none;
-} */
-/* .scroll {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-} */
+}
+.scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .progress-bar {
   position: fixed;
   top: 0;

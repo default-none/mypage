@@ -56,8 +56,9 @@ export function State({
   }, 500);
   return (
     <section className="life w-[100%] h-[100dvh] flex-col-center">
-      <div ref={stateHistoryRef} className="history w-[100%] h-[50%]">
-        <ul className="h-[100%] flex flex-col flex-wrap gap-x-[80px] overflow-hidden">
+      <div ref={stateHistoryRef} className="history w-[100%]">
+        <SubTitle text={"History"} view={firstView} />
+        <ul className="h-[100%] flex flex-col flex-wrap gap-x-[80px] gap-y-[20px] overflow-hidden mt-[50px]">
           {history.map((career, id) => {
             return (
               <li
@@ -66,10 +67,10 @@ export function State({
                   (firstView
                     ? "translate-y-[0%] opacity-100"
                     : "translate-y-[50%] opacity-0") +
-                  " text-white-lg flex justify-between w-[calc(50%-40px)] h-[20%] my-[5px] duration-[1s]"
+                  " text-white-base flex justify-between w-[calc(50%-40px)] h-[20%] my-[5px] duration-[.5s]"
                 }
               >
-                <span>- {career.content}</span>
+                <span>{career.content}</span>
                 <span>{career.day}</span>
               </li>
             );
@@ -80,34 +81,65 @@ export function State({
         ref={stateSkillRef}
         className="skill w-[100%] mt-[50px] overflow-hidden"
       >
-        <div className="flex items-center">
+        <div className="flex items-center mb-[50px]">
           <SubTitle text={"Skill"} view={secondView} />
-          <MoreButton logic={moreLogic} setLogic={setMoreLogic} />
+          <MoreButton
+            logic={moreLogic}
+            setLogic={setMoreLogic}
+            view={secondView}
+          />
         </div>
-        <ul className="flex w-[max-content] slide">
-          {skillSvg.map((svg, id) => {
-            return (
-              <li
-                id="skill"
-                key={id}
-                className=" bg-bg-color2 w-[200px] h-[200px] flex-col-center border-white border-solid border-[2px] mx-[50px]"
-              >
-                <SvgBox SVG={svg.name} alt={svg.id} />
-              </li>
-            );
-          })}
-          {skillSvg.map((svg, id) => {
-            return (
-              <li
-                id="skill"
-                key={id}
-                className="bg-bg-color2 w-[200px] h-[200px] flex-col-center border-white border-solid border-[2px] mx-[50px]"
-              >
-                <SvgBox SVG={svg.name} alt={svg.id} />
-              </li>
-            );
-          })}
-        </ul>
+        <div
+          className={
+            (secondView ? "opacity-100" : "opacity-0") +
+            " relative h-[220px] duration-[.5s]"
+          }
+        >
+          <ul
+            className={
+              (moreLogic ? " opacity-100 h-[100%]" : " opacity-0 h-[0%]") +
+              " absoulte-content m-auto w-[max-content] duration-[.5s] overflow-hidden grid grid-cols-5 gap-y-[20px] top-[50%] left-[50%]"
+            }
+          >
+            {skillSvg.map((svg, id) => {
+              return (
+                <li
+                  key={id}
+                  className=" bg-bg-color2 w-[100px] h-[100px] flex-col-center border-white border-solid border-[2px] mx-[50px]"
+                >
+                  <SvgBox SVG={svg.name} alt={svg.id} />
+                </li>
+              );
+            })}
+          </ul>
+          <ul
+            className={
+              (moreLogic ? "h-[0%] opacity-0" : "h-[100%] opacity-100") +
+              " flex w-[max-content] duration-[.5s] slide overflow-hidden items-center"
+            }
+          >
+            {skillSvg.map((svg, id) => {
+              return (
+                <li
+                  key={id}
+                  className="bg-bg-color2 w-[100px] h-[100px] flex-col-center border-white border-solid border-[2px] mx-[50px]"
+                >
+                  <SvgBox SVG={svg.name} alt={svg.id} />
+                </li>
+              );
+            })}
+            {skillSvg.map((svg, id) => {
+              return (
+                <li
+                  key={id}
+                  className=" bg-bg-color2 w-[100px] h-[100px] flex-col-center border-white border-solid border-[2px] mx-[50px]"
+                >
+                  <SvgBox SVG={svg.name} alt={svg.id} />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   );
