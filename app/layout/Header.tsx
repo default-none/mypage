@@ -1,9 +1,12 @@
 "use client";
 
 import Logo from "@/components/logo/Logo";
+import { useAppSelector } from "@/hooks";
 import { useState } from "react";
+import { GLOBAL_LIST } from "../datas/globals";
 
 export function Header() {
+  const scrollState = useAppSelector((state) => state.scroll.value);
   const [handle, setHandle] = useState<boolean>(false);
   function handleNavigaitor() {
     setHandle(!handle);
@@ -16,7 +19,7 @@ export function Header() {
       }
     >
       <h1 onClick={handleNavigaitor} className="cursor-pointer">
-        <Logo size={60}/>
+        <Logo size={60} />
       </h1>
       <nav
         className={
@@ -24,15 +27,20 @@ export function Header() {
         }
       >
         <ul className="flex justify-around">
-          <li id="wUp" className="w-[100px] mx-[50px] my-[10px] text-white-xl">
-            Portfolio
-          </li>
-          <li id="wUp" className="w-[100px] mx-[50px] my-[10px] text-white-xl">
-            Program
-          </li>
-          <li id="wUp" className="w-[100px] mx-[50px] my-[10px] text-white-xl">
-            Plan
-          </li>
+          {GLOBAL_LIST.map<JSX.Element>((list, i) => {
+            return (
+              <li
+                key={i}
+                id="wUp"
+                className={
+                  (scrollState ? "text-black-xl" : "text-white-xl") +
+                  " w-[100px] mx-[50px] my-[10px] duration-[.5s]"
+                }
+              >
+                {list}
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>

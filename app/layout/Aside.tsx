@@ -1,9 +1,11 @@
 "use client";
 
+import { useAppSelector } from "@/hooks";
 import { MAIN_LIST } from "../datas/globals";
 import { hookLogic } from "portfolio";
 
-export function Aside({ view, globalLogic }: hookLogic) {
+export function Aside({ view }: hookLogic) {
+  const scrollState = useAppSelector((state) => state.scroll.value);
   return (
     <aside
       className={
@@ -18,7 +20,7 @@ export function Aside({ view, globalLogic }: hookLogic) {
               <li
                 id="wUp"
                 className={
-                  (globalLogic ? "text-black-xl" : "text-white-xl") +
+                  (scrollState ? "text-black-xl" : "text-white-xl") +
                   " hover:translate-x-[-70%] duration-[0.5s]  p-[15px]"
                 }
                 key={i}

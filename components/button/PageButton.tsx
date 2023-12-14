@@ -21,7 +21,7 @@ export function PageButton({ text, size }: Props) {
       }
     >
       {text}
-      <div className="w-[3px] h-[0px] bg-sub-color2 absoulte-content top-[50%] left-[100%] group-hover:h-[40px] duration-[0.5s]"></div>
+      <div className="w-[3px] h-[0px] bg-sub-color2 absolute-content top-[50%] left-[100%] group-hover:h-[40px] duration-[0.5s]"></div>
     </span>
   );
 }

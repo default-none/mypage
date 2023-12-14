@@ -43,7 +43,7 @@ export function About({ view, setView }: hookLogic) {
         >
           <SectionTitle text={TITLE} view={view} />
           <div className="w-[100%] h-[100%] flex justify-center items-center relative">
-            <div className="absoulte-content top-[50%] left-[50%] z-[-1] grayscale opacity-20">
+            <div className="absolute-content top-[50%] left-[50%] z-[-1] grayscale opacity-20">
               <Logo size={200} />
             </div>
             <div className="profileImg w-[210px] h-[270px] overflow-hidden absolute translate-y-[-50%] top-[50%] max-md:top-[50%] left-[0%] max-md:left-[50%]">

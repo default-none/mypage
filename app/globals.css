@@ -30,7 +30,7 @@
     @apply translate-x-[-50%];
     @apply translate-y-[-50%];
   }
-  .absoulte-content {
+  .absolute-content {
     position: absolute;
     @apply translate-x-[-50%];
     @apply translate-y-[-50%];

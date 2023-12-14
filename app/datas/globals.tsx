@@ -1,4 +1,5 @@
 export const MAIN_LIST: string[] = ["About", "Project", "Contect"];
+export const GLOBAL_LIST: string[] = ["Portfolio", "Program", "Plan"];
 export const Profiles = {
   Birth: "[1999.04.26]",
   Name: "[박진수]",

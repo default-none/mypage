@@ -18,10 +18,10 @@ export function MoreButton({ logic, setLogic, view }: Props) {
       <div
         className={
           (logic ? "rotate-90" : "") +
-          " absoulte-content top-[50%] left-[50%] w-[3px] h-[15px] bg-white origin-center duration-[.5s]"
+          " absolute-content top-[50%] left-[50%] w-[3px] h-[15px] bg-white origin-center duration-[.5s]"
         }
       ></div>
-      <div className=" absoulte-content top-[50%] left-[50%] w-[15px] h-[3px] bg-white origin-center duration-[.5s]"></div>
+      <div className=" absolute-content top-[50%] left-[50%] w-[15px] h-[3px] bg-white origin-center duration-[.5s]"></div>
     </div>
   );
 }

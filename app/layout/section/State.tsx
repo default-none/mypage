@@ -80,7 +80,7 @@ export function State({
           <ul
             className={
               (moreLogic ? " opacity-100 h-[100%]" : " opacity-0 h-[0%]") +
-              " absoulte-content m-auto w-[max-content] duration-[.5s] overflow-hidden grid grid-cols-5 gap-y-[20px] top-[50%] left-[50%]"
+              " absolute-content m-auto w-[max-content] duration-[.5s] overflow-hidden grid grid-cols-5 gap-y-[20px] top-[50%] left-[50%]"
             }
           >
             {skillSvg.map((svg, id) => {

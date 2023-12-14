@@ -67,7 +67,7 @@ export function Intro({
         }
       >
         <div className="bannerWrap">
-          <div className="bannerImg w-[300px] max-md:w-[200px] h-[300px] max-md:h-[200px] overflow-hidden absoulte-content top-[50%] max-md:top-[80%] left-[30%] max-md:left-[50%]">
+          <div className="bannerImg w-[300px] max-md:w-[200px] h-[300px] max-md:h-[200px] overflow-hidden absolute-content top-[50%] max-md:top-[80%] left-[30%] max-md:left-[50%]">
             <Image
               src={DesertFox}
               alt="desertFpx"
@@ -84,7 +84,7 @@ export function Intro({
           <h2
             className={
               (switchLogic ? "opacity-100" : "opacity-0") +
-              " w-[400px] bannerText text-white-7xl absoulte-content top-[75%] max-md:top-[70%]  left-[30%] max-md:left-[50%] duration-[5s]"
+              " w-[400px] bannerText text-white-7xl absolute-content top-[75%] max-md:top-[70%]  left-[30%] max-md:left-[50%] duration-[5s]"
             }
           >
             <span className="block w-[100%] text-left text-shadow-theme">
@@ -96,7 +96,7 @@ export function Intro({
           </h2>
         </div>
 
-        <div className="absoulte-content top-[50%] max-md:top-[20%] left-[70%] max-md:left-[50%] flex-col-center ">
+        <div className="absolute-content top-[50%] max-md:top-[20%] left-[70%] max-md:left-[50%] flex-col-center ">
           {switchLogic ? (
             <>
               <TypingText text={userName} size={48} />
@@ -134,7 +134,7 @@ export function Intro({
           <ul
             className={
               (switchLogic ? "h-[50px]" : "h-[0px]") +
-              " absoulte-content top-[50%] left-[50%] overflow-hidden flex delay-[2s] duration-[1s]"
+              " absolute-content top-[50%] left-[50%] overflow-hidden flex delay-[2s] duration-[1s]"
             }
           >
             {MAIN_LIST.map<JSX.Element>((list, i) => {
@@ -148,7 +148,7 @@ export function Intro({
           <i
             className={
               (switchLogic ? "h-[50px] opacity-100" : "h-[0px] opacity-0") +
-              " absoulte-content top-[80%] left-[50%] overflow-hidden delay-[2s] duration-[1s] cursor-pointer max-md:hidden"
+              " absolute-content top-[80%] left-[50%] overflow-hidden delay-[2s] duration-[1s] cursor-pointer max-md:hidden"
             }
           >
             <Info />

@@ -15,8 +15,6 @@ export default function Home() {
   const [stateHistoryView, setStateHistoryView] = useState(false);
   const [stateSkillView, setStateSkillView] = useState(false);
   const [addressView, setAddressView] = useState(false);
-
-  const [globalLogic, setGlobalLogic] = useState(false);
   useScroller(() => {
     if (progressBar) return;
     if (switchLogic) setProgressBar(true);
@@ -35,7 +33,7 @@ export default function Home() {
             id="pageWrap"
             className="w-[1440px] max-[1440px]:w-[100%] m-auto"
           >
-            <Aside view={introView} globalLogic={globalLogic} />
+            <Aside view={introView} />
             <About view={aboutView} setView={setAboutView} />
             <State
               firstView={stateHistoryView}
@@ -44,11 +42,7 @@ export default function Home() {
               setSecondView={setStateSkillView}
             />
           </div>
-          <Address
-            view={addressView}
-            setView={setAddressView}
-            setGlobalLogic={setGlobalLogic}
-          />
+          <Address view={addressView} setView={setAddressView} />
           <div className="w-[1440px] max-[1440px]:w-[100%] m-auto">
             <Project />
           </div>
