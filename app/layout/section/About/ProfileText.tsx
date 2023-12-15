@@ -3,7 +3,7 @@ type Props = {
   text: string;
 };
 
-export function ProfileText({ content, text }: Props) {
+export default function ProfileText({ content, text }: Props) {
   return (
     <>
       <h4 className="text-white-xl text-right w-[50%] mr-[50px]">{content}</h4>
