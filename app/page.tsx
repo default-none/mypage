@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { Intro, About, State, Address, Project } from "./layout/section/index";
+import {
+  Intro,
+  About,
+  State,
+  Address,
+  Project,
+} from "./layout/section/index.ts";
 import { Aside } from "./layout/index";
 import { useScroller } from "@/hooks";
 
