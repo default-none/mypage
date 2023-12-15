@@ -49,9 +49,11 @@ export function About({ view, setView }: hookLogic) {
             <div className="profileImg w-[210px] h-[270px] overflow-hidden absolute translate-y-[-50%] top-[50%] max-md:top-[50%] left-[0%] max-md:left-[50%]">
               <Image
                 src={Profile}
-                alt={"Profile"}
+                alt="Profile"
                 fill={true}
                 sizes="(max-width: 210px)"
+                quality={100}
+                priority={true}
                 className=" object-cover"
               />
             </div>
