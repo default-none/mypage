@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import {
-  Intro,
-  About,
-  State,
-  Address,
-  Project,
-} from "./layout/section/index.ts";
+import { Intro, About, State, Address, Project } from "./layout/section/index";
 import { Aside } from "./layout/index";
 import { useScroller } from "@/hooks";
 
@@ -41,17 +35,17 @@ export default function Home() {
           >
             <Aside view={introView} />
             <About view={aboutView} setView={setAboutView} />
-            <State
+            {/* <State
               firstView={stateHistoryView}
               secondView={stateSkillView}
               setFirstView={setStateHistoryView}
               setSecondView={setStateSkillView}
-            />
+            /> */}
           </div>
-          <Address view={addressView} setView={setAddressView} />
+          {/* <Address view={addressView} setView={setAddressView} />
           <div className="w-[1440px] max-[1440px]:w-[100%] m-auto">
             <Project />
-          </div>
+          </div> */}
         </>
       ) : null}
       <motion.div
