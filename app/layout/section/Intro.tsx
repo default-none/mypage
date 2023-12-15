@@ -28,6 +28,7 @@ export function Intro({
     if (name.length >= 1 && name.length <= 20) {
       sessionStorage.setItem("name", name);
       getUserName(["Wellcome!", name + "님 환영합니다!"]);
+      setSwitchLogic(true);
     }
     if (name.length < 1 || name.length > 20) {
       setErrorLogic(true);
@@ -35,7 +36,6 @@ export function Intro({
     }
   }
   function handleClick() {
-    setSwitchLogic(true);
     callText();
   }
   function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {

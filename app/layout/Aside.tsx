@@ -10,7 +10,7 @@ export function Aside({ view }: hookLogic) {
     <aside
       className={
         (view ? "opacity-0" : "opacity-100") +
-        " fixed-content left-[100%] top-[40%] translate-x-[-25%] tracking-[0.25rem] duration-[.5s]"
+        " fixed-content left-[100%] top-[50%] translate-x-[-25%] tracking-[0.25rem] duration-[.5s]"
       }
     >
       <nav>

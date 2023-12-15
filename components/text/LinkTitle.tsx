@@ -29,8 +29,8 @@ export function LinkTitle({ text }: Props) {
         onMouseOver={() => setTest(true)}
         onMouseLeave={() => setTest(false)}
         className={
-          (test ? " opacity-100" : " opacity-0") +
-          " absolute-content w-[300px] h-[300px] bg-red-600 z-50 duration-[.3s]"
+          (test ? " opacity-100 blur-none" : " opacity-0 blur-3xl") +
+          " absolute-content w-[240px] h-[180px] bg-red-600 z-50 duration-[.3s]"
         }
       ></div>
     </>
