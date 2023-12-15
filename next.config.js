@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const prefix =
-  process.env.NODE_ENV === "production"
+  process.env.NODE_ENV === "production next"
     ? "https://default-none.github.io/mypage/"
     : "";
 
