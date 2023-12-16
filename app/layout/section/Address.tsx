@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Title } from "@/components/logo/Title";
-import { hookLogic } from "portfolio";
+import { hookLogic } from "typeList";
 import { useAppDispatch, useScroller } from "@/hooks";
 import { offState, onState } from "@/state/scrollSlice";
 

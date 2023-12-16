@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Roboto_Flex } from "next/font/google";
+import { Noto_Sans_KR, Roboto_Flex, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "./layout/index";
 import { CustomCursor } from "@/components/CustomCursor";
-import { store } from "@/state/store";
 import { Providers } from "@/state/provider";
 const kr = Noto_Sans_KR({
   preload: false,
@@ -14,6 +13,11 @@ const en = Roboto_Flex({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto-flex",
+});
+const special = Source_Serif_4({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-serif-4",
 });
 export const metadata: Metadata = {
   title: "DefaultNone",
@@ -26,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${kr.variable} ${en.variable} scroll`}>
+    <html lang="en" className={`${kr.variable} ${en.variable} ${special.variable} scroll`}>
       <body>
         <Providers>
           <Header></Header>

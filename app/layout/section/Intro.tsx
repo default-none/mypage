@@ -8,17 +8,14 @@ import { PageButton } from "@/components/button";
 import DesertFox from "@/public/asset/image/desertFox.png";
 import { MAIN_LIST } from "@/app/datas/globals";
 import { useScroller } from "@/hooks/useScroller";
-import { hookLogic } from "portfolio";
+import { components, hookLogic } from "typeList";
 
 const TYPING_TEXT: string[] = ["Hello!", "Who are you?"];
 const LIST_SIZE: number = 30;
 
-export function Intro({
-  switchLogic,
-  setSwitchLogic,
-  view,
-  setView,
-}: hookLogic) {
+export function Intro(
+  { switchLogic, setSwitchLogic, view, setView ,space}: hookLogic
+) {
   const [name, setName] = useState<string>("");
   const [errorLogic, setErrorLogic] = useState(false);
   const [userName, getUserName] = useState<string[]>([""]);
@@ -42,6 +39,12 @@ export function Intro({
     if (e.key === "Enter") {
       handleClick();
     }
+  }
+  function handleTop(i: number) {
+    console.log(i)
+    console.log(space)
+    if (space === undefined) return;
+    window.scrollTo(0, space[i]);
   }
 
   useScroller(() => {
@@ -139,7 +142,7 @@ export function Intro({
           >
             {MAIN_LIST.map<JSX.Element>((list, i) => {
               return (
-                <li key={i}>
+                <li key={i} onClick={()=>handleTop(i)}>
                   <PageButton text={list} size={LIST_SIZE} />
                 </li>
               );

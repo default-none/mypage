@@ -10,11 +10,12 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "pj1-desktop": "url('./build/')",
       },
       fontFamily: {
         sans: ["var(--font-roboto-flex)", "var(--font-noto-sans-kr)"],
+        serif: ["var(--font-source-serif-4)"],
       },
       colors: {
         "bg-color1": "#121212",

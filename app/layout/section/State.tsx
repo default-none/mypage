@@ -1,7 +1,7 @@
 import { history, skillSvg } from "@/app/datas/globals";
 import { SubTitle } from "@/components/text/SubTitle";
 import { useScroller } from "@/hooks";
-import { hookLogic } from "portfolio";
+import { hookLogic } from "typeList";
 import { useRef, useState } from "react";
 import { SvgBox } from "@/app/layout/section/about/SvgBox";
 import { MoreButton } from "@/components/button";
@@ -52,11 +52,11 @@ export function State({
                   (firstView
                     ? "translate-y-[0%] opacity-100"
                     : "translate-y-[50%] opacity-0") +
-                  " text-white-base flex justify-between w-[calc(50%-40px)] h-[20%] my-[5px] duration-[.5s]"
+                  " text-white-base flex justify-between w-[calc(50%-40px)] max-md:w-[100%] h-[20%] my-[5px] duration-[.5s] max-[540px]:justify-center"
                 }
               >
                 <span>{career.content}</span>
-                <span>{career.day}</span>
+                <span className="md:max-xl:hidden max-[540px]:hidden">{career.day}</span>
               </li>
             );
           })}
@@ -80,7 +80,7 @@ export function State({
           <ul
             className={
               (moreLogic ? " opacity-100 h-[100%]" : " opacity-0 h-[0%]") +
-              " absolute-content m-auto w-[max-content] duration-[.5s] overflow-hidden grid grid-cols-5 gap-y-[20px] top-[50%] left-[50%]"
+              " absolute-content m-auto w-[max-content] duration-[.5s] overflow-hidden grid grid-cols-5 max-md:grid-cols-1 gap-y-[20px] top-[50%] left-[50%]"
             }
           >
             {skillSvg.map((svg, id) => {

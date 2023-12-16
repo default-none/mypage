@@ -1,12 +1,15 @@
 "use client";
 
-import { use, useEffect, useRef, useState } from "react";
-type Props = {
-  text: string;
-  view?: boolean;
-};
-export function LinkTitle({ text }: Props) {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+interface Props {
+  x:number|string|undefined,
+  y:number|string|undefined,
+
+}
+
+import { useState } from "react";
+import { components } from "typeList";
+export function LinkTitle({ text }: components) {
+  const [position, setPosition] = useState<Props>({ x: undefined, y: undefined });
   const [test, setTest] = useState(false);
 
   function handleImgMove(e: React.MouseEvent) {
@@ -20,7 +23,8 @@ export function LinkTitle({ text }: Props) {
       <h2
         onMouseMove={handleImgMove}
         onMouseOver={() => setTest(true)}
-        className={"text-white-7xl w-[max-content] duration-[.3s]"}
+        onMouseLeave={() => setTest(false)}
+        className={"text-white-7xl w-[max-content] my-[100px] duration-[.3s]"}
       >
         {text}
       </h2>

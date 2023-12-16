@@ -1,8 +1,6 @@
-type Props = {
-  text: string;
-  view?: boolean;
-};
-export function SubTitle({ text, view }: Props) {
+import { components } from "typeList";
+
+export function SubTitle({ text, view }: components) {
   return (
     <>
       <h2

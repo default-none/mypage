@@ -1,4 +1,4 @@
-import { hookLogic } from "portfolio";
+import { hookLogic } from "typeList";
 
 export function Title({ view }: hookLogic) {
   return (

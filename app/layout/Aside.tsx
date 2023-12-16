@@ -2,9 +2,15 @@
 
 import { useAppSelector } from "@/hooks";
 import { MAIN_LIST } from "../datas/globals";
-import { hookLogic } from "portfolio";
+import { hookLogic } from "typeList";
 
-export function Aside({ view }: hookLogic) {
+export function Aside({ view, space }: hookLogic) {
+  function handleTop(i: number) {
+    console.log(i)
+    console.log(space)
+    if (space === undefined) return;
+    window.scrollTo(0, space[i]);
+  }
   const scrollState = useAppSelector((state) => state.scroll.value);
   return (
     <aside
@@ -24,6 +30,7 @@ export function Aside({ view }: hookLogic) {
                   " hover:translate-x-[-70%] duration-[0.5s]  p-[15px]"
                 }
                 key={i}
+                onClick={()=>handleTop(i)}
               >
                 {list}
               </li>
