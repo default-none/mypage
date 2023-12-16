@@ -34,7 +34,7 @@ export default function Home() {
             className="w-[1440px] max-[1440px]:w-[100%] m-auto"
           >
             <Aside view={introView} />
-            <About view={aboutView} setView={setAboutView} />
+            {/* <About view={aboutView} setView={setAboutView} /> */}
             {/* <State
               firstView={stateHistoryView}
               secondView={stateSkillView}
