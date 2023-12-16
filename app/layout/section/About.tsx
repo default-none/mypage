@@ -4,7 +4,7 @@ import Image from "next/image";
 import { SectionTitle } from "@/components/text/SectionTitle";
 import Profile from "@/public/asset/image/profile.jpg";
 import { Profiles } from "@/app/datas/globals";
-import { ProfileText } from "./about2/ProfileText";
+import { ProfileText } from "./about/ProfileText";
 import Logo from "@/components/logo/Logo";
 import { useScroller } from "@/hooks";
 import { useRef } from "react";

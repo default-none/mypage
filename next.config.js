@@ -6,7 +6,6 @@ const prefix =
     : "";
 
 const nextConfig = {
-  basePath: "/",
   output: "export",
   reactStrictMode: true,
   assetPrefix: prefix,

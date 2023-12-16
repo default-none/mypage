@@ -3,7 +3,7 @@ import { SubTitle } from "@/components/text/SubTitle";
 import { useScroller } from "@/hooks";
 import { hookLogic } from "portfolio";
 import { useRef, useState } from "react";
-import { SvgBox } from "@/app/layout/section/about2/SvgBox";
+import { SvgBox } from "@/app/layout/section/about/SvgBox";
 import { MoreButton } from "@/components/button";
 
 export function State({
@@ -74,7 +74,7 @@ export function State({
         <div
           className={
             (secondView ? "opacity-100" : "opacity-0") +
-            " relative h-[220px] duration-[.5s]"
+            " relative h-[220px] duration-[.5s] p-[5px] border-x-[1px] border-solid border-white"
           }
         >
           <ul
