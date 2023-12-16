@@ -3,7 +3,7 @@ import { SubTitle } from "@/components/text/SubTitle";
 import { useScroller } from "@/hooks";
 import { hookLogic } from "portfolio";
 import { useRef, useState } from "react";
-import { SvgBox } from "@/app/layout/section/about/SvgBox";
+import { SvgBox } from "@/app/layout/section/about2/SvgBox";
 import { MoreButton } from "@/components/button";
 
 export function State({
