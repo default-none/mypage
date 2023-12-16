@@ -34,18 +34,18 @@ export default function Home() {
             className="w-[1440px] max-[1440px]:w-[100%] m-auto"
           >
             <Aside view={introView} />
-            {/* <About view={aboutView} setView={setAboutView} /> */}
-            {/* <State
+            <About view={aboutView} setView={setAboutView} />
+            <State
               firstView={stateHistoryView}
               secondView={stateSkillView}
               setFirstView={setStateHistoryView}
               setSecondView={setStateSkillView}
-            /> */}
+            />
           </div>
-          {/* <Address view={addressView} setView={setAddressView} />
+          <Address view={addressView} setView={setAddressView} />
           <div className="w-[1440px] max-[1440px]:w-[100%] m-auto">
             <Project />
-          </div> */}
+          </div>
         </>
       ) : null}
       <motion.div
