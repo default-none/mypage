@@ -110,10 +110,10 @@ export function State({
                 </li>
               );
             })}
-            {skillSvg.map((svg, id) => {
+            {skillSvg.map((svg) => {
               return (
                 <li
-                  key={id}
+                  key={svg.id}
                   className=" bg-bg-color2 w-[100px] h-[100px] flex-col-center border-white border-solid border-[2px] mx-[50px]"
                 >
                   <SvgBox SVG={svg.name} alt={svg.id} />
