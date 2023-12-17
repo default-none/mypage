@@ -19,14 +19,14 @@ export function About({view, setView, sectionRef}: hookLogic) {
     const aboutTop = sectionRef.current.offsetTop;
     const aboutHeight = sectionRef.current.offsetHeight;
     if (
-      window.scrollY < aboutTop / 2 ||
+      window.scrollY < aboutTop - aboutHeight / 4 ||
       window.scrollY >= aboutTop + aboutHeight / 2
     ) {
       setView(false);
     }
     if (
       window.scrollY < aboutTop + aboutHeight / 2 &&
-      window.scrollY > aboutTop - aboutHeight / 2
+      window.scrollY > aboutTop - aboutHeight / 4
     ) {
       setView(true);
     }
@@ -58,7 +58,7 @@ export function About({view, setView, sectionRef}: hookLogic) {
             </div>
             <div className="w-[100%]">
               {Object.entries(Profiles).map(([key, value]) => (
-                <div key={key} className="flex justify-center my-[10px max-md:justify-between">
+                <div key={key} className="flex justify-center my-[10px] max-md:justify-between">
                   <ProfileText content={key} text={value} />
                 </div>
               ))}

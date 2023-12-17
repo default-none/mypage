@@ -15,14 +15,14 @@ export function Address({ view, setView }: hookLogic) {
     const addressTop = addressRef.current.offsetTop;
     const addressHeight = addressRef.current.offsetHeight;
     if (
-      window.scrollY < addressTop / 2 ||
+      window.scrollY < addressTop - addressHeight / 4 ||
       window.scrollY >= addressTop + addressHeight / 2
     ) {
       setView(false);
     }
     if (
       window.scrollY < addressTop + addressHeight / 2 &&
-      window.scrollY > addressTop - addressHeight / 2
+      window.scrollY > addressTop - addressHeight / 4
     ) {
       setView(true);
     }
@@ -39,7 +39,7 @@ export function Address({ view, setView }: hookLogic) {
     <>
       <section
         ref={addressRef}
-        className="bg-img w-[100vw] h-[100dvh] top-[300vh] left-[0] flex-col-center"
+        className="bg-img w-[100vw] h-[100dvh] flex-col-center"
       >
         <div></div>
         <Title view={view} />

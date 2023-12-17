@@ -1,18 +1,21 @@
 "use client";
 
 interface Props {
-  x:number|string|undefined,
-  y:number|string|undefined,
-
+  x: number | string | undefined;
+  y: number | string | undefined;
 }
 
 import { useState } from "react";
 import { components } from "typeList";
 export function LinkTitle({ text }: components) {
-  const [position, setPosition] = useState<Props>({ x: undefined, y: undefined });
+  const [position, setPosition] = useState<Props>({
+    x: undefined,
+    y: undefined,
+  });
   const [test, setTest] = useState(false);
 
   function handleImgMove(e: React.MouseEvent) {
+    console.log(e)
     setPosition({
       x: e.clientX,
       y: e.pageY,

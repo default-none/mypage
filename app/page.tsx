@@ -2,7 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { Intro, About, State, Address, Project } from "./layout/section/index";
+import {
+  Intro,
+  About,
+  State,
+  Address,
+  Project,
+  ToyClone,
+} from "./layout/section/index";
 import { Aside } from "./layout/index";
 import { useScroller } from "@/hooks";
 
@@ -14,9 +21,10 @@ export default function Home() {
 
   const [introView, setIntroView] = useState(true);
   const [aboutView, setAboutView] = useState(false);
-  const [stateHistoryView, setStateHistoryView] = useState(false);
-  const [stateSkillView, setStateSkillView] = useState(false);
+  const [stateView, setStateView] = useState(false);
   const [addressView, setAddressView] = useState(false);
+  const [ProjectView, setProjectView] = useState(false);
+  const [teamView, setTeamView] = useState(false);
 
   const aboutRef = useRef<HTMLElement>();
   const projectRef = useRef<HTMLElement>();
@@ -61,17 +69,19 @@ export default function Home() {
               setView={setAboutView}
               sectionRef={aboutRef}
             />
-            <State
-              firstView={stateHistoryView}
-              secondView={stateSkillView}
-              setFirstView={setStateHistoryView}
-              setSecondView={setStateSkillView}
-            />
+            <State view={stateView} setView={setStateView} />
           </div>
           <Address view={addressView} setView={setAddressView} />
           <div className="w-[1440px] max-[1440px]:w-[100%] m-auto">
-            <Project sectionRef={projectRef}/>
+            <Project
+              firstView={ProjectView}
+              setFirstView={setProjectView}
+              secondView={teamView}
+              setSecondView={setTeamView}
+              sectionRef={projectRef}
+            />
           </div>
+          <ToyClone />
         </>
       ) : null}
       <motion.div

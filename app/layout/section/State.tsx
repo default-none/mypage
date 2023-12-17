@@ -7,10 +7,8 @@ import { SvgBox } from "@/app/layout/section/about/SvgBox";
 import { MoreButton } from "@/components/button";
 
 export function State({
-  firstView,
-  setFirstView,
-  secondView,
-  setSecondView,
+  view,
+  setView,
 }: hookLogic) {
   const stateRef = useRef<HTMLElement>(null);
   const [moreLogic, setMoreLogic] = useState(false);
@@ -22,18 +20,16 @@ export function State({
     const stateTop = stateRef.current.offsetTop;
     const stateHeight = stateRef.current.offsetHeight;
     if (
-      window.scrollY < stateTop / 2 ||
+      window.scrollY < stateTop - stateHeight / 4 ||
       window.scrollY >= stateTop + stateHeight / 2
     ) {
-      setFirstView(false);
-      setSecondView(false);
+      setView(false);
     }
     if (
       window.scrollY < stateTop + stateHeight / 2 &&
-      window.scrollY > stateTop - stateHeight / 2
+      window.scrollY > stateTop - stateHeight / 4
     ) {
-      setFirstView(true);
-      setSecondView(true);
+      setView(true);
     }
   }, 300);
   return (
@@ -42,14 +38,14 @@ export function State({
       className="life w-[100%] h-[100dvh] flex-col-center"
     >
       <div className="history w-[100%]">
-        <SubTitle text={"History"} view={firstView} />
+        <SubTitle text={"History"} view={view} />
         <ul className="h-[100%] flex flex-col flex-wrap gap-x-[80px] gap-y-[20px] overflow-hidden mt-[50px]">
           {history.map((career, id) => {
             return (
               <li
                 key={id}
                 className={
-                  (firstView
+                  (view
                     ? "translate-y-[0%] opacity-100"
                     : "translate-y-[50%] opacity-0") +
                   " text-white-base flex justify-between w-[calc(50%-40px)] max-md:w-[100%] h-[20%] my-[5px] duration-[.5s] max-[540px]:justify-center"
@@ -64,16 +60,16 @@ export function State({
       </div>
       <div className="skill w-[100%] mt-[50px] overflow-hidden">
         <div className="flex items-center mb-[50px]">
-          <SubTitle text={"Skill"} view={secondView} />
+          <SubTitle text={"Skill"} view={view} />
           <MoreButton
             logic={moreLogic}
             setLogic={setMoreLogic}
-            view={secondView}
+            view={view}
           />
         </div>
         <div
           className={
-            (secondView ? "opacity-100" : "opacity-0") +
+            (view ? "opacity-100" : "opacity-0") +
             " relative h-[220px] duration-[.5s] p-[5px] border-x-[1px] border-solid border-white"
           }
         >
