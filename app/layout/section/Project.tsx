@@ -55,8 +55,8 @@ export function Project({
   }, 300);
   return (
     <>
-      <section ref={sectionRef} className="">
-        <div className="w-[100%] duration-[.5s] my-[15%]">
+      <section ref={sectionRef}>
+        <div className="w-[100%] duration-[.5s] pt-[10%]">
           <SectionTitle text={TITLE} view={firstView} />
           <ContentWrap
             projectType={"Personal Project"}
@@ -71,7 +71,9 @@ export function Project({
           <ContentWrap
             projectType={"Team Project"}
             projectTitle={"밤을걷다 고궁 축제 FestivalSite 제작"}
+            name={"team1"}
             projectTitle2={"독:수리 초등학교 고학년 수학 학습 Site 제작"}
+            name2={"team2"}
             view={secondView}
           />
         </div>

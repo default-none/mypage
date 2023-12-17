@@ -7,7 +7,7 @@ interface Props {
 
 import { useState } from "react";
 import { components } from "typeList";
-export function LinkTitle({ text }: components) {
+export function LinkTitle({ text, imgName }: components) {
   const [position, setPosition] = useState<Props>({
     x: undefined,
     y: undefined,
@@ -15,7 +15,7 @@ export function LinkTitle({ text }: components) {
   const [test, setTest] = useState(false);
 
   function handleImgMove(e: React.MouseEvent) {
-    console.log(e)
+    console.log(e);
     setPosition({
       x: e.clientX,
       y: e.pageY,
@@ -37,7 +37,12 @@ export function LinkTitle({ text }: components) {
         onMouseLeave={() => setTest(false)}
         className={
           (test ? " opacity-100 blur-none" : " opacity-0 blur-3xl") +
-          " absolute-content w-[240px] h-[180px] bg-red-600 z-50 duration-[.3s]"
+          " absolute-content w-[320px] h-[180px] z-50 duration-[.3s]" +
+          (imgName === "team1"
+            ? " bg-team1-desktop"
+            : imgName === "team2"
+            ? " bg-team2-desktop"
+            : " bg-red-600")
         }
       ></div>
     </>

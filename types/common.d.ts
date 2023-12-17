@@ -15,6 +15,7 @@ declare module "typeList" {
   }
   type components = {
     text: string;
+    imgName?: string;
     view?: boolean;
   };
 }

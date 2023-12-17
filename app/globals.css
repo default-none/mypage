@@ -5,7 +5,7 @@
 @layer components {
   /* BACK GROUND */
   .bg-img {
-    background: url(../public/asset/image/background2.jpg) center repeat;
+    background: url(../public/asset/image/background.jpg) center repeat;
     background-size: contain;
   }
   /* BORDER SCREEN */

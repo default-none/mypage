@@ -11,7 +11,13 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "pj1-desktop": "url('./build/')",
+        "team1-desktop": "url('../public/asset/image/team1.png')",
+        "team2-desktop": "url('../public/asset/image/team2.png')",
+        "pj2-desktop" : "url('./public/asset/image/')",
+        "toy-1": "url('../public/asset/image/toyProject1.png')",
+        "toy-2": "url('../public/asset/image/toyProject1.png')",
+        "toy-3": "url('../public/asset/image/toyProject1.png')",
+        "toy-4": "url('../public/asset/image/toyProject1.png')"
       },
       fontFamily: {
         sans: ["var(--font-roboto-flex)", "var(--font-noto-sans-kr)"],

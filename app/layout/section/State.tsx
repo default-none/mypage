@@ -39,7 +39,7 @@ export function State({
     >
       <div className="history w-[100%]">
         <SubTitle text={"History"} view={view} />
-        <ul className="h-[100%] flex flex-col flex-wrap gap-x-[80px] gap-y-[20px] overflow-hidden mt-[50px]">
+        <ul className="h-[100%] flex flex-col max-md:flex-nowrap flex-wrap gap-x-[80px] max-md:gap-x-[0] gap-y-[20px] overflow-hidden mt-[50px]">
           {history.map((career, id) => {
             return (
               <li
@@ -48,7 +48,7 @@ export function State({
                   (view
                     ? "translate-y-[0%] opacity-100"
                     : "translate-y-[50%] opacity-0") +
-                  " text-white-base flex justify-between w-[calc(50%-40px)] max-md:w-[100%] h-[20%] my-[5px] duration-[.5s] max-[540px]:justify-center"
+                  " text-white-base flex justify-between w-[calc(50%-40px)] max-md:w-[100%] h-[20%] max-md:h-[max-content] max- duration-[.5s] max-[540px]:justify-center"
                 }
               >
                 <span>{career.content}</span>

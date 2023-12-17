@@ -33,11 +33,11 @@ export function About({view, setView, sectionRef}: hookLogic) {
   }, 300);
   return (
     <>
-      <section ref={sectionRef} className="w-[100%] h-[100dvh] max-md:h-[100%] flex-col-center">
+      <section ref={sectionRef} className="w-[100%] h-[100dvh]">
         <div
           className={
             (view ? "opacity-100" : "opacity-0 ") +
-            " AboutScreen w-[100%] h-[100%] my-[15%] max-md:h-[100%] duration-[.5s]"
+            " AboutScreen w-[100%] h-[100%] pt-[10%] duration-[.5s]"
           }
         >
           <SectionTitle text={TITLE} view={view} />
@@ -45,7 +45,7 @@ export function About({view, setView, sectionRef}: hookLogic) {
             <div className="absolute-content top-[50%] left-[50%] z-[-1] grayscale opacity-20">
               <Logo size={200} />
             </div>
-            <div className="profileImg w-[210px] h-[270px] max-md:w-[140px] max-md:h-[180px] overflow-hidden absolute max-md:static translate-y-[-50%] top-[50%] left-[0%]">
+            <div className="profileImg w-[210px] h-[270px] max-md:w-[140px] max-md:h-[180px] max-md:mb-[50px] overflow-hidden absolute max-md:static translate-y-[-50%] max-md:translate-y-[0%] top-[50%] left-[0%]">
               <Image
                 src={Profile}
                 alt="Profile"
