@@ -6,7 +6,7 @@ export function SectionTitle({ text, view }: components) {
       <h2
         className={
           (view ? "opacity-100" : "opacity-0") +
-          " text-white-3xl text-end w-[130px] duration-[.5s] max-sm:m-[auto]"
+          " text-white-3xl text-end max-sm:text-center w-[130px] duration-[.5s] max-sm:m-[auto]"
         }
       >
         {text}

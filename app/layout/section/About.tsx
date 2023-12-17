@@ -33,7 +33,7 @@ export function About({view, setView, sectionRef}: hookLogic) {
   }, 300);
   return (
     <>
-      <section ref={sectionRef} className="w-[100%] h-[100dvh] flex-col-center">
+      <section ref={sectionRef} className="w-[100%] h-[100dvh] max-md:h-[100%] flex-col-center">
         <div
           className={
             (view ? "opacity-100" : "opacity-0 ") +

@@ -90,10 +90,10 @@ export function Intro(
               " w-[400px] bannerText text-white-7xl absolute-content top-[75%] max-md:top-[70%]  left-[30%] max-md:left-[50%] duration-[5s]"
             }
           >
-            <span className="block w-[100%] text-left text-shadow-theme">
+            <span className="block w-[100%] max-md:translate-x-[10%] text-left text-shadow-theme">
               Jinsu&apos;s
             </span>
-            <span className="block w-[100%] text-right text-shadow-theme">
+            <span className="block w-[100%] max-md:translate-x-[-10%] text-right text-shadow-theme">
               Portfolio
             </span>
           </h2>
