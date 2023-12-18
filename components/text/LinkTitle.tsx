@@ -12,7 +12,7 @@ export function LinkTitle({ text, imgName }: components) {
     x: undefined,
     y: undefined,
   });
-  const [test, setTest] = useState(false);
+  const [img, setImg] = useState(false);
 
   function handleImgMove(e: React.MouseEvent) {
     console.log(e);
@@ -25,18 +25,18 @@ export function LinkTitle({ text, imgName }: components) {
     <>
       <h2
         onMouseMove={handleImgMove}
-        onMouseOver={() => setTest(true)}
-        onMouseLeave={() => setTest(false)}
+        onMouseOver={() => setImg(true)}
+        onMouseLeave={() => setImg(false)}
         className={"text-white-7xl w-[max-content] my-[100px] duration-[.3s]"}
       >
         {text}
       </h2>
       <div
         style={{ top: position.y, left: position.x }}
-        onMouseOver={() => setTest(true)}
-        onMouseLeave={() => setTest(false)}
+        onMouseOver={() => setImg(true)}
+        onMouseLeave={() => setImg(false)}
         className={
-          (test ? " opacity-100 blur-none" : " opacity-0 blur-3xl") +
+          (img ? " opacity-100 blur-none" : " opacity-0 blur-3xl") +
           " absolute-content w-[320px] h-[180px] z-50 duration-[.3s]" +
           (imgName === "team1"
             ? " bg-team1-desktop"
