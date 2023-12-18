@@ -6,7 +6,7 @@ const prefix =
     : "";
 
 const nextConfig = {
-  // output: "export",
+  output: "export",
   reactStrictMode: true,
   assetPrefix: prefix,
   webpack: (config) => {
