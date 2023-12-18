@@ -1,7 +1,16 @@
+"use client"
 import { useScroller } from "@/hooks";
+import { useState } from "react";
 import { hookLogic } from "typeList";
 
 export function Contect({ sectionRef, view, setView }: hookLogic) {
+  const [onContect, setOnContect] = useState(false);
+  const [count, setCount] = useState(0);
+  // function changeText() {
+  //   setOnContect(!onContect)
+  //   setCount(prev => prev + 1)
+  //   if (count == 2)
+  // }
   useScroller(() => {
     if (sectionRef === null || sectionRef === undefined) return;
     if (sectionRef.current === null) return;
@@ -23,11 +32,12 @@ export function Contect({ sectionRef, view, setView }: hookLogic) {
   return (
     <>
       <section ref={sectionRef} className="w-[100%] h-[100dvh] flex-col-center">
-        <div className="text-white-7xl font-serif font-extralight flex justify-center">
+        <div onClick={() => setOnContect(!onContect)}
+          className="text-white-7xl font-serif font-extralight flex justify-center">
           &#123;
           <span
             className={
-              (view ? "w-[100%]" : "w-[0%]") +
+              (view ? (onContect ? "w-[0%]" : "w-[100%]") : "w-[0%]") +
               " block overflow-hidden duration-[1s]"
             }
           >
@@ -36,10 +46,7 @@ export function Contect({ sectionRef, view, setView }: hookLogic) {
           </span>
           &#125;
         </div>
-        <form action="">
-          <label htmlFor="Name">성함</label>
-          <input id="Name" />
-        </form>
+        <div className="text-white-7xl">010-7548-3110</div>
       </section>
     </>
   );
