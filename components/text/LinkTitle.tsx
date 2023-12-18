@@ -42,7 +42,9 @@ export function LinkTitle({ text, imgName }: components) {
             ? " bg-team1-desktop"
             : imgName === "team2"
             ? " bg-team2-desktop"
-            : " bg-red-600")
+            : imgName === "personal1"
+            ? " bg-personal1-desktop"
+            : " bg-slate-700")
         }
       ></div>
     </>

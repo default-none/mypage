@@ -12,6 +12,7 @@ import {
 } from "./layout/section/index";
 import { Aside } from "./layout/index";
 import { useScroller } from "@/hooks";
+import { Contect } from "./layout/section/Contect";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -25,10 +26,11 @@ export default function Home() {
   const [addressView, setAddressView] = useState(false);
   const [ProjectView, setProjectView] = useState(false);
   const [teamView, setTeamView] = useState(false);
+  const [contectView, setContectView] = useState(false);
 
   const aboutRef = useRef<HTMLElement>();
   const projectRef = useRef<HTMLElement>();
-  const contectRef = useRef<HTMLElement>(null);
+  const contectRef = useRef<HTMLElement>();
 
   useEffect(() => {
     function LoadTop() {
@@ -82,6 +84,13 @@ export default function Home() {
             />
           </div>
           <ToyClone />
+          <div className="w-[1440px] max-[1440px]:w-[100%] m-auto">
+            <Contect
+              sectionRef={contectRef}
+              view={contectView}
+              setView={setContectView}
+            />
+          </div>
         </>
       ) : null}
       <motion.div

@@ -61,6 +61,7 @@ export function Project({
           <ContentWrap
             projectType={"Personal Project"}
             projectTitle={"광주 Country Club 리모델링"}
+            name={"personal1"}
             projectTitle2="미디어 유통 사이트 제작"
             view={firstView}
           />

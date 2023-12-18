@@ -15,7 +15,7 @@ export function Header() {
     <header
       className={
         (handle ? "grayscale" : "grayscale-0") +
-        " w-[100%] flex-col-center py-10 fixed-header z-10 duration-[0.5s] text-center"
+        " w-[100%] flex-col-center py-10 fixed-header z-10 duration-[0.5s] text-center max-md:static"
       }
     >
       <h1 onClick={handleNavigaitor} className="cursor-pointer">
